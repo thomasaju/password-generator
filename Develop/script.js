@@ -1,10 +1,30 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
+
+function randomInteger(min, max){
+  if (!max){
+    max = min
+    min = 0
+  }
+  var rand = Math.random()
+  return Math.floor(min * (1- rand)+ rand * max);
+}
+
+
+
+function getRandomItem(list){
+  return list [randomInteger(0, list.length)]
+}
+
+
+
 //making a function for generate password
 function generatePassword(){
 
   var inputNumber = prompt("-	how many characters would you like your password to contain..?");
+  
 
  // changed  the string to a number
   var changeToNumber = parseInt(inputNumber);
@@ -14,7 +34,7 @@ function generatePassword(){
  // creating an if statement if user enter other than a number..
 
   if ( isNaN(changeToNumber) ) {
-    alert("Fool, enter a number! 😡");
+    alert(" Enter a valid number! 😡");
     return generatePassword();
   }
 
@@ -39,7 +59,7 @@ function generatePassword(){
   var lowerCaseLetters =  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 
-  var options = [lowerCaseLetters, upperCaseLetters ,numbers, symbolicValue];
+  var options = [];
 
 
   
@@ -58,15 +78,43 @@ function generatePassword(){
     options.push(symbolicValue);
   }
 
-console.log(options);
+  if (options.length === 0){
+    options.push(lowerCaseLetters && upperCaseLetters);
+  }
+
+ 
+var generatedValues = "";
+
+for(var i =0; i < changeToNumber; i++){
+  var randomNumber = getRandomItem(options);
+  var randomPassword = getRandomItem(randomNumber);
+  
+ generatedValues += randomPassword;
+ 
+
+ console.log(generatedValues);
+
+ 
+
+
+  // var string = randomPassword;
+  // var usingSplit = string.split('') ;
+  // var usingArrayFrom = Array.from(string);
+  // var usingObjectAssign = Object.assign([], string);
+  // console.log( usingObjectAssign );
+}
+
+
+return generatedValues;
+
+
+
+
+
 
 }
 
-var genereatedValues = ""
 
-for(var i =0; i < inputNumber; i++){
-
-}
 
 
 
