@@ -103,14 +103,7 @@ for(var i =0; i < changeToNumber; i++){
   // var usingObjectAssign = Object.assign([], string);
   // console.log( usingObjectAssign );
 }
-
-
 return generatedValues;
-
-
-
-
-
 
 }
 
